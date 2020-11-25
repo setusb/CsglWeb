@@ -2,7 +2,6 @@ package com.dao;
 
 import com.daomain.Student;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -54,6 +53,7 @@ public interface StudentDao {
      * @param uData 原数据
      * @param data 现有数据
      * @param name 字段名
+     * @return 是否替换成功
      */
-    void replaceMemberData(String uData, String data, String name);
+    boolean replaceMemberData(String uData, String data, String name);
 }

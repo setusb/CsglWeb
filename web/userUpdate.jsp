@@ -55,7 +55,7 @@
                     <div>
                         <label for="userName">用户名称：</label>
                         <input type="text" name="userName" id="userName" placeholder="${list.name}"/>
-                        <span >*</span>
+                        <span >*${unName}</span>
                     </div>
 
                     <div>

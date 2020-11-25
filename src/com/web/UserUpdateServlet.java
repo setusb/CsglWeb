@@ -32,7 +32,14 @@ public class UserUpdateServlet extends HttpServlet {
 
         StudentDaoImpl studentDao = new StudentDaoImpl();
         if (name.length() != 0) {
-            studentDao.replaceMemberData(uname, name, "name");
+            boolean flag = studentDao.replaceMemberData(uname, name, "name");
+            System.out.println(flag);
+            if (!flag) {
+                List<Student> list = studentDao.querySingleData(uname);
+                request.setAttribute("list", list);
+                request.setAttribute("unName", "用户名不能重复");
+                request.getRequestDispatcher("/userUpdate.jsp").forward(request, response);
+            }
         }
         if (password.length() != 0) {
             studentDao.replaceMemberData(upassword, password, "password");

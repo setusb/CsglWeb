@@ -108,13 +108,18 @@ public class StudentDaoImpl extends DatabaseImpl implements StudentDao {
     }
 
     @Override
-    public void replaceMemberData(String uData, String data,String name) {
+    public boolean replaceMemberData(String uData, String data,String name) {
         try {
             linkDatabase();
             int i = modifyDatabase("update student set "+name+" = replace("+name+",'"+uData+"','"+data+"')");
+            if (i > 0) {
+                closeDatabase();
+                return true;
+            }
             closeDatabase();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
     }
 }
