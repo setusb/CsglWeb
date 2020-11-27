@@ -8,7 +8,7 @@ import java.sql.*;
  * @date 2020/11/22 20:57
  */
 public class DatabaseImpl implements DatabaseDao {
-    static String url = "jdbc:mysql://39.99.209.230:3306/csgl";
+    static String url = "jdbc:mysql://39.99.209.230:3306/csgl?useUnicode=true&characterEncoding=utf8";
     static String username = "root";
     static String password = "setusb";
     static Connection conn = null;
